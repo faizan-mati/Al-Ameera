@@ -1,0 +1,1422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Al Ameera Apparel - Luxury Fashion & Premium Clothing</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* Light theme variables */
+            --primary-color: #2C3E50;
+            --secondary-color: #E74C3C;
+            --accent-color: #F39C12;
+            --bg-primary: #FFFFFF;
+            --bg-secondary: #F8F9FA;
+            --bg-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --text-primary: #2C3E50;
+            --text-secondary: #7F8C8D;
+            --text-light: #BDC3C7;
+            --border-color: #E8E9EA;
+            --shadow-light: 0 4px 6px rgba(0, 0, 0, 0.07);
+            --shadow-medium: 0 8px 25px rgba(0, 0, 0, 0.1);
+            --shadow-heavy: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        [data-theme="dark"] {
+            --primary-color: #3498DB;
+            --secondary-color: #E67E22;
+            --accent-color: #F1C40F;
+            --bg-primary: #1A1A1A;
+            --bg-secondary: #2C2C2C;
+            --bg-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --text-primary: #FFFFFF;
+            --text-secondary: #BDC3C7;
+            --text-light: #7F8C8D;
+            --border-color: #404040;
+            --shadow-light: 0 4px 6px rgba(0, 0, 0, 0.3);
+            --shadow-medium: 0 8px 25px rgba(0, 0, 0, 0.4);
+            --shadow-heavy: 0 20px 40px rgba(0, 0, 0, 0.6);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.7;
+            color: var(--text-primary);
+            background-color: var(--bg-primary);
+            transition: all 0.4s ease;
+            overflow-x: hidden;
+        }
+
+        .heading-font {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Animated Background Elements */
+        .bg-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.05;
+        }
+
+        .floating-shape {
+            position: absolute;
+            border-radius: 50%;
+            background: var(--bg-gradient);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .shape-1 { width: 100px; height: 100px; top: 20%; left: 10%; animation-delay: 0s; }
+        .shape-2 { width: 150px; height: 150px; top: 60%; right: 15%; animation-delay: 2s; }
+        .shape-3 { width: 80px; height: 80px; bottom: 20%; left: 20%; animation-delay: 4s; }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+        }
+
+        /* Enhanced Header */
+        .header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-color);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        [data-theme="dark"] .header {
+            background: rgba(26, 26, 26, 0.95);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.2rem 3rem;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+            position: relative;
+        }
+
+        .logo::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: var(--secondary-color);
+            transition: width 0.3s ease;
+        }
+
+        .logo:hover::after {
+            width: 100%;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .nav-menu li a {
+            text-decoration: none;
+            color: var(--text-primary);
+            font-weight: 500;
+            font-size: 1.05rem;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .nav-menu li a::before {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 2px;
+            background: var(--secondary-color);
+            transition: width 0.3s ease;
+        }
+
+        .nav-menu li a:hover::before {
+            width: 100%;
+        }
+
+        .theme-toggle {
+            background: var(--bg-gradient);
+            border: none;
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-light);
+        }
+
+        .theme-toggle:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        /* Hero Section with Video Background Effect */
+        .hero {
+            background: var(--bg-gradient);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="white" opacity="0.1"/><circle cx="75" cy="75" r="1" fill="white" opacity="0.1"/><circle cx="50" cy="10" r="1" fill="white" opacity="0.05"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            animation: grain 20s linear infinite;
+        }
+
+        @keyframes grain {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(-100px, -100px); }
+        }
+
+        .hero-content {
+            max-width: 900px;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: white;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+            line-height: 1.2;
+        }
+
+        .hero .subtitle {
+            font-size: 1.4rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 3rem;
+            line-height: 1.6;
+            font-weight: 300;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1.2rem 2.5rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            text-decoration: none;
+            display: inline-block;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary {
+            background: white;
+            color: var(--primary-color);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-heavy);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+        }
+
+        .btn-outline:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-5px);
+        }
+
+        /* Stats Section */
+        .stats {
+            background: var(--bg-primary);
+            padding: 4rem 2rem;
+            margin-top: -2rem;
+            position: relative;
+            z-index: 3;
+        }
+
+        .stats-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+            text-align: center;
+        }
+
+        .stat-item {
+            padding: 2rem;
+            background: var(--bg-secondary);
+            border-radius: 20px;
+            box-shadow: var(--shadow-light);
+            transition: all 0.3s ease;
+        }
+
+        .stat-item:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .stat-number {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: var(--secondary-color);
+            margin-bottom: 0.5rem;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .stat-label {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            font-weight: 600;
+        }
+
+        /* About Section */
+        .about {
+            padding: 8rem 2rem;
+            background: var(--bg-secondary);
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--secondary-color);
+            border-radius: 2px;
+        }
+
+        .section-subtitle {
+            font-size: 1.3rem;
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 2rem auto 0;
+            line-height: 1.8;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 5rem;
+            align-items: center;
+            margin-top: 4rem;
+        }
+
+        .about-image {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow-medium);
+        }
+
+        .about-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--bg-gradient);
+            opacity: 0.8;
+            z-index: 1;
+        }
+
+        .image-placeholder {
+            width: 100%;
+            height: 400px;
+            background: var(--bg-gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: white;
+        }
+
+        .about-content {
+            padding-left: 2rem;
+        }
+
+        .about-content h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: var(--text-primary);
+        }
+
+        .about-content p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .features-list {
+            list-style: none;
+            margin: 2rem 0;
+        }
+
+        .features-list li {
+            padding: 0.8rem 0;
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .features-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--secondary-color);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        /* Products Section */
+        .products {
+            padding: 8rem 2rem;
+            background: var(--bg-primary);
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+
+        .product-card {
+            background: var(--bg-secondary);
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: var(--shadow-light);
+            transition: all 0.4s ease;
+            position: relative;
+        }
+
+        .product-card:hover {
+            transform: translateY(-15px);
+            box-shadow: var(--shadow-heavy);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 280px;
+            background: var(--bg-gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(255,255,255,0.1) 0%, transparent 100%);
+        }
+
+        .product-info {
+            padding: 2rem;
+        }
+
+        .product-category {
+            color: var(--secondary-color);
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+        }
+
+        .product-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+            font-family: 'Playfair Display', serif;
+        }
+
+        .product-description {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .product-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-tag {
+            background: var(--primary-color);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .learn-more {
+            color: var(--secondary-color);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .learn-more:hover {
+            gap: 1rem;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 8rem 2rem;
+            background: var(--bg-secondary);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .service-card {
+            background: var(--bg-primary);
+            padding: 3rem 2rem;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: var(--shadow-light);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--secondary-color);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--bg-gradient);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 2rem;
+            color: white;
+            box-shadow: var(--shadow-light);
+        }
+
+        .service-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+            font-family: 'Playfair Display', serif;
+        }
+
+        .service-description {
+            color: var(--text-secondary);
+            line-height: 1.6;
+            font-size: 1rem;
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            padding: 8rem 2rem;
+            background: var(--bg-primary);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+
+        .testimonial-card {
+            background: var(--bg-secondary);
+            padding: 3rem;
+            border-radius: 25px;
+            box-shadow: var(--shadow-light);
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: -10px;
+            left: 2rem;
+            font-size: 6rem;
+            color: var(--secondary-color);
+            font-family: 'Playfair Display', serif;
+            line-height: 1;
+        }
+
+        .testimonial-text {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            line-height: 1.8;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .author-avatar {
+            width: 60px;
+            height: 60px;
+            background: var(--bg-gradient);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .author-info h4 {
+            color: var(--text-primary);
+            font-weight: 600;
+            margin-bottom: 0.2rem;
+        }
+
+        .author-info span {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 8rem 2rem;
+            background: var(--bg-secondary);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            margin-top: 4rem;
+        }
+
+        .contact-info {
+            padding: 2rem 0;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background: var(--bg-primary);
+            border-radius: 15px;
+            box-shadow: var(--shadow-light);
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            transform: translateX(10px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .contact-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--bg-gradient);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .contact-details h3 {
+            color: var(--text-primary);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .contact-details p {
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .contact-form {
+            background: var(--bg-primary);
+            padding: 3rem;
+            border-radius: 25px;
+            box-shadow: var(--shadow-medium);
+        }
+
+        .form-group {
+            margin-bottom: 2rem;
+        }
+
+        .form-group label {
+            display: block;
+            color: var(--text-primary);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem 1.5rem;
+            border: 2px solid var(--border-color);
+            border-radius: 10px;
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--secondary-color);
+            box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.1);
+        }
+
+        .form-group textarea {
+            height: 120px;
+            resize: vertical;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--text-primary);
+            color: white;
+            padding: 5rem 2rem 2rem;
+        }
+
+        [data-theme="dark"] .footer {
+            background: #000000;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 4rem;
+        }
+
+        .footer-section h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--secondary-color);
+        }
+
+        .footer-section p {
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-section a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            display: block;
+            padding: 0.3rem 0;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: var(--secondary-color);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-link {
+            width: 50px;
+            height: 50px;
+            background: var(--bg-gradient);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 3rem;
+            margin-top: 3rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 1024px) {
+            .about-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .about-content {
+                padding-left: 0;
+                margin-top: 2rem;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 3rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+
+            .mobile-menu-toggle {
+                display: block;
+                background: none;
+                border: none;
+                font-size: 1.8rem;
+                color: var(--text-primary);
+                cursor: pointer;
+            }
+
+            .hero h1 {
+                font-size: 3rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1.2rem;
+            }
+
+            .section-title {
+                font-size: 2.5rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+
+            .nav-container {
+                padding: 1rem 1.5rem;
+            }
+
+            .products-grid,
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero {
+                padding: 4rem 1rem;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .about, .products, .services, .testimonials, .contact {
+                padding: 4rem 1rem;
+            }
+
+            .stats {
+                padding: 3rem 1rem;
+            }
+
+            .contact-form {
+                padding: 2rem;
+            }
+        }
+
+        .mobile-menu-toggle {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="bg-animation">
+        <div class="floating-shape shape-1"></div>
+        <div class="floating-shape shape-2"></div>
+        <div class="floating-shape shape-3"></div>
+    </div>
+
+    <!-- Enhanced Header -->
+    <header class="header">
+        <nav class="nav-container">
+            <a href="#" class="logo">Al Ameera Apparel</a>
+            
+            <ul class="nav-menu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#products">Products</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><button class="theme-toggle" onclick="toggleTheme()">🌙 Dark Mode</button></li>
+            </ul>
+            
+            <button class="mobile-menu-toggle">☰</button>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <div class="hero-badge">✨ Premium Fashion Since 2008</div>
+            <h1 class="heading-font">Crafting Excellence in Every Thread</h1>
+            <p class="subtitle">Discover Al Ameera Apparel's exclusive collection of luxury clothing, where traditional craftsmanship meets contemporary design. Experience fashion that defines elegance and quality.</p>
+            <div class="cta-buttons">
+                <a href="#products" class="btn btn-primary">Explore Collection</a>
+                <a href="#about" class="btn btn-outline">Our Story</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="stats-container">
+            <div class="stat-item">
+                <div class="stat-number">15+</div>
+                <div class="stat-label">Years of Excellence</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">50K+</div>
+                <div class="stat-label">Happy Customers</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">200+</div>
+                <div class="stat-label">Premium Designs</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">25+</div>
+                <div class="stat-label">Countries Served</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title heading-font">About Al Ameera Apparel</h2>
+                <p class="section-subtitle">We are pioneers in luxury fashion, committed to creating extraordinary clothing that embodies sophistication, quality, and timeless elegance for discerning customers worldwide.</p>
+            </div>
+            
+            <div class="about-grid">
+                <div class="about-image">
+                    <div class="image-placeholder">🏭</div>
+                </div>
+                <div class="about-content">
+                    <h3 class="heading-font">Our Heritage of Excellence</h3>
+                    <p>Founded in 2008, Al Ameera Apparel has established itself as a leading name in premium fashion manufacturing. Our journey began with a simple vision: to create clothing that seamlessly blends traditional craftsmanship with modern design sensibilities.</p>
+                    
+                    <p>Today, we stand proud as a globally recognized brand, serving customers across 25+ countries with our extensive range of luxury apparel. Our state-of-the-art manufacturing facility ensures that every garment meets the highest standards of quality and durability.</p>
+                    
+                    <ul class="features-list">
+                        <li>Premium quality fabrics sourced globally</li>
+                        <li>Expert craftsmanship with attention to detail</li>
+                        <li>Sustainable and ethical manufacturing practices</li>
+                        <li>Custom design and tailoring services</li>
+                        <li>International quality certifications</li>
+                        <li>24/7 customer support and service</li>
+                    </ul>
+                    
+                    <a href="#contact" class="btn btn-primary" style="margin-top: 1rem;">Get In Touch</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="products">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title heading-font">Featured Collections</h2>
+                <p class="section-subtitle">Explore our carefully curated collections that showcase the perfect blend of contemporary fashion and timeless elegance, designed for the modern lifestyle.</p>
+            </div>
+            
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-image">👔</div>
+                    <div class="product-info">
+                        <div class="product-category">Men's Collection</div>
+                        <h3 class="product-title heading-font">Executive Formal Wear</h3>
+                        <p class="product-description">Sophisticated formal shirts, suits, and accessories designed for the modern professional. Crafted with premium cotton and finest materials for ultimate comfort and style.</p>
+                        <div class="product-features">
+                            <span class="feature-tag">Premium Cotton</span>
+                            <span class="feature-tag">Custom Fit</span>
+                            <span class="feature-tag">Wrinkle Free</span>
+                        </div>
+                        <a href="#" class="learn-more">Learn More →</a>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-image">👗</div>
+                    <div class="product-info">
+                        <div class="product-category">Women's Collection</div>
+                        <h3 class="product-title heading-font">Elegant Designer Wear</h3>
+                        <p class="product-description">Exquisite dresses, blouses, and formal wear that celebrate femininity and grace. Each piece is carefully designed to enhance your natural beauty and confidence.</p>
+                        <div class="product-features">
+                            <span class="feature-tag">Luxury Fabric</span>
+                            <span class="feature-tag">Designer Cut</span>
+                            <span class="feature-tag">Comfort Fit</span>
+                        </div>
+                        <a href="#" class="learn-more">Learn More →</a>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-image">👕</div>
+                    <div class="product-info">
+                        <div class="product-category">Casual Collection</div>
+                        <h3 class="product-title heading-font">Premium Casual Wear</h3>
+                        <p class="product-description">Relaxed yet refined casual clothing perfect for weekend outings and informal gatherings. Comfort meets style in our contemporary casual collection.</p>
+                        <div class="product-features">
+                            <span class="feature-tag">Soft Touch</span>
+                            <span class="feature-tag">Breathable</span>
+                            <span class="feature-tag">Easy Care</span>
+                        </div>
+                        <a href="#" class="learn-more">Learn More →</a>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-image">🧥</div>
+                    <div class="product-info">
+                        <div class="product-category">Seasonal Collection</div>
+                        <h3 class="product-title heading-font">Luxury Outerwear</h3>
+                        <p class="product-description">Premium jackets, coats, and seasonal wear designed to keep you stylish and comfortable throughout the year. Quality meets functionality.</p>
+                        <div class="product-features">
+                            <span class="feature-tag">Weather Resistant</span>
+                            <span class="feature-tag">Thermal</span>
+                            <span class="feature-tag">Stylish</span>
+                        </div>
+                        <a href="#" class="learn-more">Learn More →</a>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-image">👘</div>
+                    <div class="product-info">
+                        <div class="product-category">Traditional Collection</div>
+                        <h3 class="product-title heading-font">Cultural Heritage Wear</h3>
+                        <p class="product-description">Beautiful traditional clothing that honors cultural heritage while incorporating modern comfort and style. Perfect for special occasions and celebrations.</p>
+                        <div class="product-features">
+                            <span class="feature-tag">Handcrafted</span>
+                            <span class="feature-tag">Traditional</span>
+                            <span class="feature-tag">Premium</span>
+                        </div>
+                        <a href="#" class="learn-more">Learn More →</a>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-image">👶</div>
+                    <div class="product-info">
+                        <div class="product-category">Kids Collection</div>
+                        <h3 class="product-title heading-font">Children's Fashion</h3>
+                        <p class="product-description">Adorable and comfortable clothing for children, designed with safety and style in mind. Made from soft, hypoallergenic materials perfect for sensitive skin.</p>
+                        <div class="product-features">
+                            <span class="feature-tag">Safe Materials</span>
+                            <span class="feature-tag">Comfortable</span>
+                            <span class="feature-tag">Durable</span>
+                        </div>
+                        <a href="#" class="learn-more">Learn More →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title heading-font">Our Services</h2>
+                <p class="section-subtitle">We offer comprehensive fashion solutions from design consultation to worldwide delivery, ensuring every aspect of your clothing needs is expertly handled.</p>
+            </div>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">✂️</div>
+                    <h3 class="service-title heading-font">Custom Tailoring</h3>
+                    <p class="service-description">Personalized tailoring services with precise measurements and expert craftsmanship to ensure the perfect fit for every body type and style preference.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">🎨</div>
+                    <h3 class="service-title heading-font">Design Consultation</h3>
+                    <p class="service-description">Work with our experienced design team to create unique, custom clothing pieces that reflect your personal style and meet your specific requirements.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">🚚</div>
+                    <h3 class="service-title heading-font">Global Shipping</h3>
+                    <p class="service-description">Reliable worldwide shipping with tracking and insurance. We deliver your premium clothing safely to your doorstep, anywhere in the world.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">🔄</div>
+                    <h3 class="service-title heading-font">Easy Returns</h3>
+                    <p class="service-description">Hassle-free return and exchange policy. If you're not completely satisfied with your purchase, we make returns simple and convenient.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">🛡️</div>
+                    <h3 class="service-title heading-font">Quality Assurance</h3>
+                    <p class="service-description">Rigorous quality control processes ensure every garment meets our high standards before it reaches you. Quality guaranteed or money back.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">💬</div>
+                    <h3 class="service-title heading-font">24/7 Support</h3>
+                    <p class="service-description">Round-the-clock customer service to assist with orders, sizing questions, care instructions, and any other inquiries you may have.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title heading-font">What Our Customers Say</h2>
+                <p class="section-subtitle">Read what our satisfied customers have to say about their experience with Al Ameera Apparel's premium clothing and exceptional service.</p>
+            </div>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <p class="testimonial-text">The quality of Al Ameera's clothing is absolutely exceptional. I've been a customer for over 5 years and every purchase has exceeded my expectations. The attention to detail and premium materials make their products worth every penny.</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">S</div>
+                        <div class="author-info">
+                            <h4>Sarah Ahmed</h4>
+                            <span>Fashion Designer, Karachi</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <p class="testimonial-text">I ordered a custom suit for my wedding and the experience was fantastic. The tailoring was perfect, the fabric quality was outstanding, and the customer service team was incredibly helpful throughout the process.</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">M</div>
+                        <div class="author-info">
+                            <h4>Michael Johnson</h4>
+                            <span>Business Executive, Dubai</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <p class="testimonial-text">Al Ameera Apparel has become my go-to brand for professional clothing. Their shirts are comfortable, stylish, and maintain their quality even after multiple washes. Highly recommended for anyone seeking premium fashion.</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">A</div>
+                        <div class="author-info">
+                            <h4>Ayesha Khan</h4>
+                            <span>Corporate Lawyer, Lahore</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3 class="heading-font">Al Ameera Apparel</h3>
+                <p>Your premier destination for luxury fashion and premium clothing. We're committed to delivering excellence in every garment we create, combining traditional craftsmanship with contemporary design.</p>
+                <div class="social-links">
+                    <a href="#" class="social-link">📘</a>
+                    <a href="#" class="social-link">📷</a>
+                    <a href="#" class="social-link">🐦</a>
+                    <a href="#" class="social-link">💼</a>
+                    <a href="#" class="social-link">📺</a>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <a href="#home">Home</a>
+                <a href="#about">About Us</a>
+                <a href="#products">Our Products</a>
+                <a href="#services">Services</a>
+                <a href="#contact">Contact Us</a>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Product Categories</h3>
+                <a href="#">Men's Formal Wear</a>
+                <a href="#">Women's Designer Collection</a>
+                <a href="#">Casual & Lifestyle</a>
+                <a href="#">Traditional Clothing</a>
+                <a href="#">Children's Fashion</a>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Customer Service</h3>
+                <a href="#">Size Guide</a>
+                <a href="#">Care Instructions</a>
+                <a href="#">Shipping & Returns</a>
+                <a href="#">Custom Orders</a>
+                <a href="#">FAQ</a>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2025 Al Ameera Apparel. All rights reserved. | Crafted with ❤️ for Fashion Excellence | Privacy Policy | Terms of Service</p>
+        </div>
+    </footer>
+
+    <script>
+        // Theme management
+        let currentTheme = 'light';
+        
+        function toggleTheme() {
+            const body = document.body;
+            const themeToggle = document.querySelector('.theme-toggle');
+            
+            if (currentTheme === 'light') {
+                body.setAttribute('data-theme', 'dark');
+                themeToggle.innerHTML = '☀️ Light Mode';
+                currentTheme = 'dark';
+            } else {
+                body.setAttribute('data-theme', 'light');
+                themeToggle.innerHTML = '🌙 Dark Mode';
+                currentTheme = 'light';
+            }
+        }
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 100) {
+                header.style.background = currentTheme === 'dark' 
+                    ? 'rgba(26, 26, 26, 0.98)' 
+                    : 'rgba(255, 255, 255, 0.98)';
+                header.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.1)';
+            } else {
+                header.style.background = currentTheme === 'dark' 
+                    ? 'rgba(26, 26, 26, 0.95)' 
+                    : 'rgba(255, 255, 255, 0.95)';
+                header.style.boxShadow = 'none';
+            }
+        });
+
+        // Form submission
+        document.querySelector('.contact-form form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! We will get back to you soon.');
+        });
+
+        // Animate stats on scroll
+        const observerOptions = {
+            threshold: 0.5,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const statNumbers = entry.target.querySelectorAll('.stat-number');
+                    statNumbers.forEach(stat => {
+                        const finalNumber = stat.textContent;
+                        const number = parseInt(finalNumber.replace(/[^0-9]/g, ''));
+                        animateNumber(stat, 0, number, finalNumber);
+                    });
+                }
+            });
+        }, observerOptions);
+
+        const statsSection = document.querySelector('.stats');
+        if (statsSection) {
+            observer.observe(statsSection);
+        }
+
+        function animateNumber(element, start, end, suffix) {
+            const duration = 2000;
+            const startTime = performance.now();
+            
+            function updateNumber(currentTime) {
+                const elapsed = currentTime - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+                const current = Math.floor(start + (end - start) * progress);
+                
+                element.textContent = current + suffix.replace(/[0-9]/g, '');
+                
+                if (progress < 1) {
+                    requestAnimationFrame(updateNumber);
+                }
+            }
+            
+            requestAnimationFrame(updateNumber);
+        }
+    </script>
+</body>
+</html>

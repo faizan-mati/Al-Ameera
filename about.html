@@ -1,0 +1,1169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Al Ameera Apparel | Luxury Fashion & Premium Clothing</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css"
+        rel="stylesheet">
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        :root {
+            /* Light theme variables */
+            --primary-color: #2C3E50;
+            --secondary-color: #E74C3C;
+            --accent-color: #F39C12;
+            --bg-primary: #FFFFFF;
+            --bg-secondary: #F8F9FA;
+            --bg-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --text-primary: #2C3E50;
+            --text-secondary: #7F8C8D;
+            --text-light: #BDC3C7;
+            --border-color: #E8E9EA;
+            --shadow-light: 0 4px 6px rgba(0, 0, 0, 0.07);
+            --shadow-medium: 0 8px 25px rgba(0, 0, 0, 0.1);
+            --shadow-heavy: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        [data-theme="dark"] {
+            --primary-color: #3498DB;
+            --secondary-color: #E67E22;
+            --accent-color: #F1C40F;
+            --bg-primary: #1A1A1A;
+            --bg-secondary: #2C2C2C;
+            --bg-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --text-primary: #FFFFFF;
+            --text-secondary: #BDC3C7;
+            --text-light: #7F8C8D;
+            --border-color: #404040;
+            --shadow-light: 0 4px 6px rgba(0, 0, 0, 0.3);
+            --shadow-medium: 0 8px 25px rgba(0, 0, 0, 0.4);
+            --shadow-heavy: 0 20px 40px rgba(0, 0, 0, 0.6);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.7;
+            color: var(--text-primary);
+            background-color: var(--bg-primary);
+            transition: all 0.4s ease;
+            overflow-x: hidden;
+        }
+
+        .heading-font {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .section-padding {
+            padding: 6rem 0;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--secondary-color);
+            border-radius: 2px;
+        }
+
+        /* Enhanced Navbar */
+        .navbar {
+            background: rgba(255, 255, 255, 0.95) !important;
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+        }
+
+        [data-theme="dark"] .navbar {
+            background: rgba(26, 26, 26, 0.95) !important;
+        }
+
+        .navbar-brand {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--primary-color) !important;
+            position: relative;
+        }
+
+        .navbar-brand::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: var(--secondary-color);
+            transition: width 0.3s ease;
+        }
+
+        .navbar-brand:hover::after {
+            width: 100%;
+        }
+
+        .navbar-nav .nav-link {
+            color: var(--text-primary) !important;
+            font-weight: 500;
+            font-size: 1.05rem;
+            position: relative;
+            transition: all 0.3s ease;
+            margin: 0 0.5rem;
+        }
+
+        .navbar-nav .nav-link::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 2px;
+            background: var(--secondary-color);
+            transition: width 0.3s ease;
+        }
+
+        .navbar-nav .nav-link:hover::before {
+            width: 100%;
+        }
+
+        .theme-toggle {
+            background: var(--bg-gradient);
+            border: none;
+            color: white;
+            padding: 0.6rem 1.2rem;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-light);
+        }
+
+        .theme-toggle:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        /* Page Hero Section */
+        .page-hero {
+            background: var(--bg-gradient);
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            padding: 2rem 0;
+        }
+
+        .page-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse"><path d="M 50 0 L 0 0 0 50" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/></pattern></defs><rect width="100%" height="100%" fill="url(%23grid)"/></svg>') repeat;
+            animation: gridFloat 20s linear infinite;
+        }
+
+        @keyframes gridFloat {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
+        }
+
+        .page-hero .hero-content {
+            z-index: 2;
+            position: relative;
+            text-align: center;
+        }
+
+        .page-hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 700;
+            color: white;
+            margin-bottom: 1.5rem;
+            opacity: 0;
+            transform: translateY(50px);
+            animation: fadeInUp 1s ease 0.3s forwards;
+        }
+
+        .page-hero .subtitle {
+            font-size: clamp(1rem, 3vw, 1.3rem);
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 2rem;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease 0.6s forwards;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .breadcrumb-custom {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 1rem 1.5rem;
+            border-radius: 50px;
+            backdrop-filter: blur(10px);
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease 0.9s forwards;
+            display: inline-block;
+        }
+
+        .breadcrumb-custom a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .breadcrumb-custom a:hover {
+            color: white;
+        }
+
+        .breadcrumb-custom .active {
+            color: white;
+            font-weight: 600;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Story Section */
+        .story-section {
+            background: var(--bg-secondary);
+            padding: 6rem 0;
+        }
+
+        .story-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .story-text h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 4vw, 2.8rem);
+            color: var(--primary-color);
+            margin-bottom: 2rem;
+        }
+
+        .story-text p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        .story-image {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow-medium);
+            height: 400px;
+            background: var(--bg-gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .story-image::before {
+            content: '👗';
+            font-size: 6rem;
+            opacity: 0.7;
+        }
+
+        /* Values Section */
+        .values-section {
+            padding: 6rem 0;
+        }
+
+        .value-card {
+            background: var(--bg-primary);
+            border: 2px solid var(--border-color);
+            border-radius: 20px;
+            padding: 2.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .value-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: var(--bg-gradient);
+            transform: translateX(-100%);
+            transition: transform 0.3s ease;
+        }
+
+        .value-card:hover::before {
+            transform: translateX(0);
+        }
+
+        .value-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-heavy);
+            border-color: var(--primary-color);
+        }
+
+        .value-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--bg-gradient);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            color: white;
+            font-size: 2rem;
+        }
+
+        .value-card h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .value-card p {
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        /* Stats Section */
+        .stats {
+            background: var(--bg-gradient);
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stats::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="2" fill="rgba(255,255,255,0.1)"/></svg>') repeat;
+            animation: sparkle 3s linear infinite;
+        }
+
+        @keyframes sparkle {
+            0% { transform: translate(0, 0) rotate(0deg); }
+            100% { transform: translate(100px, 100px) rotate(360deg); }
+        }
+
+        .stat-item {
+            position: relative;
+            z-index: 2;
+        }
+
+        .stat-number {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            font-weight: 500;
+        }
+
+        /* Team Section */
+        .team-section {
+            background: var(--bg-secondary);
+            padding: 6rem 0;
+        }
+
+        .team-card {
+            background: var(--bg-primary);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow-light);
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .team-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-heavy);
+        }
+
+        .team-image {
+            height: 250px;
+            background: var(--bg-gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .team-image::before {
+            content: '👤';
+            font-size: 4rem;
+            opacity: 0.7;
+        }
+
+        .team-content {
+            padding: 2rem;
+        }
+
+        .team-content h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .team-content .role {
+            color: var(--secondary-color);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .team-content p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Timeline Section */
+        .timeline-section {
+            padding: 6rem 0;
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: var(--bg-gradient);
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 3rem;
+            width: 50%;
+        }
+
+        .timeline-item:nth-child(even) {
+            margin-left: 50%;
+            padding-left: 3rem;
+        }
+
+        .timeline-item:nth-child(odd) {
+            padding-right: 3rem;
+            text-align: right;
+        }
+
+        .timeline-content {
+            background: var(--bg-primary);
+            border: 2px solid var(--border-color);
+            border-radius: 15px;
+            padding: 2rem;
+            position: relative;
+            box-shadow: var(--shadow-light);
+            transition: all 0.3s ease;
+        }
+
+        .timeline-content:hover {
+            box-shadow: var(--shadow-medium);
+            transform: translateY(-5px);
+        }
+
+        .timeline-year {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .timeline-marker {
+            position: absolute;
+            top: 30px;
+            width: 20px;
+            height: 20px;
+            background: var(--secondary-color);
+            border-radius: 50%;
+            border: 4px solid var(--bg-primary);
+        }
+
+        .timeline-item:nth-child(odd) .timeline-marker {
+            right: -13px;
+        }
+
+        .timeline-item:nth-child(even) .timeline-marker {
+            left: -13px;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: var(--bg-gradient);
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="2" fill="rgba(255,255,255,0.1)"/></svg>') repeat;
+            animation: sparkle 3s linear infinite;
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .cta-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-section p {
+            font-size: clamp(1rem, 2vw, 1.3rem);
+            opacity: 0.9;
+            margin-bottom: 2.5rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-cta {
+            background: white;
+            color: var(--primary-color);
+            border: none;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-cta:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-heavy);
+            color: var(--primary-color);
+        }
+
+        .btn-cta-outline {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-cta-outline:hover {
+            background: white;
+            color: var(--primary-color);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--text-primary);
+            color: white;
+            padding: 5rem 0 2rem;
+        }
+
+        [data-theme="dark"] .footer {
+            background: #000000;
+        }
+
+        .footer h5 {
+            font-family: 'Playfair Display', serif;
+            color: var(--secondary-color);
+            margin-bottom: 1.5rem;
+        }
+
+        .footer p {
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.8;
+        }
+
+        .footer a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer a:hover {
+            color: var(--secondary-color);
+        }
+
+        .social-link {
+            width: 50px;
+            height: 50px;
+            background: var(--bg-gradient);
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: white !important;
+            text-decoration: none;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            margin-right: 1rem;
+        }
+
+        .social-link:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-medium);
+            color: white !important;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .story-content {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .timeline::before {
+                left: 20px;
+            }
+
+            .timeline-item {
+                width: 100%;
+                margin-left: 0 !important;
+                padding-left: 4rem !important;
+                padding-right: 0 !important;
+                text-align: left !important;
+            }
+
+            .timeline-marker {
+                left: 11px !important;
+            }
+
+            .section-padding {
+                padding: 4rem 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn-cta {
+                width: 100%;
+                max-width: 300px;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Bootstrap Navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="./index.html">Al Ameera Apparel</a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto me-3">
+                    <li class="nav-item">
+                        <a class="nav-link" href="./index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./product.html">Products</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./service.html">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./contact.html">Contact</a>
+                    </li>
+                </ul>
+                <button class="theme-toggle" onclick="toggleTheme()">
+                    <i class="bi bi-moon"></i> Dark Mode
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Hero Section -->
+    <section class="page-hero" id="about">
+        <div class="container">
+            <div class="hero-content">
+                <h1>About Al Ameera Apparel</h1>
+                <p class="subtitle">Crafting exceptional fashion experiences since our inception. Discover the story behind our passion for luxury clothing and commitment to excellence.</p>
+                <nav class="breadcrumb-custom">
+                    <a href="#home">Home</a> / <span class="active">About</span>
+                </nav>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Story Section -->
+    <section class="story-section">
+        <div class="container">
+            <div class="story-content">
+                <div class="story-text">
+                    <h2>Our Story</h2>
+                    <p>Founded with a vision to redefine luxury fashion, Al Ameera Apparel has been at the forefront of premium clothing design and manufacturing. Our journey began with a simple belief: that exceptional fashion should be accessible to those who appreciate quality and craftsmanship.</p>
+                    
+                    <p>From our humble beginnings to becoming a trusted name in luxury apparel, we have consistently maintained our commitment to excellence. Every piece in our collection tells a story of meticulous attention to detail, premium materials, and skilled artisanship.</p>
+                    
+                    <p>Today, Al Ameera Apparel stands as a testament to timeless elegance, combining traditional techniques with contemporary designs to create clothing that transcends trends and seasons.</p>
+                </div>
+                <div class="story-image"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Values Section -->
+    <section class="values-section">
+        <div class="container">
+            <h2 class="section-title text-center">Our Core Values</h2>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3">
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="bi bi-gem"></i>
+                        </div>
+                        <h4>Quality Excellence</h4>
+                        <p>We source only the finest materials and employ skilled artisans to ensure every garment meets our exacting standards of quality and durability.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="bi bi-palette"></i>
+                        </div>
+                        <h4>Creative Innovation</h4>
+                        <p>Our design team constantly pushes boundaries, creating unique pieces that blend timeless elegance with contemporary fashion trends.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="bi bi-people"></i>
+                        </div>
+                        <h4>Customer Focus</h4>
+                        <p>Every decision we make is centered around our customers' needs, ensuring an exceptional experience from browsing to wearing our creations.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="bi bi-leaf"></i>
+                        </div>
+                        <h4>Sustainability</h4>
+                        <p>We are committed to responsible fashion practices, ensuring our processes are environmentally conscious and ethically sound.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="section-padding stats">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-md-3 col-6">
+                    <div class="stat-item">
+                        <span class="stat-number">15+</span>
+                        <div class="stat-label">Years of Excellence</div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6">
+                    <div class="stat-item">
+                        <span class="stat-number">10,000+</span>
+                        <div class="stat-label">Happy Customers</div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6">
+                    <div class="stat-item">
+                        <span class="stat-number">500+</span>
+                        <div class="stat-label">Unique Designs</div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6">
+                    <div class="stat-item">
+                        <span class="stat-number">25+</span>
+                        <div class="stat-label">Cities Served</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team-section">
+        <div class="container">
+            <h2 class="section-title text-center">Meet Our Team</h2>
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <div class="team-card">
+                        <div class="team-image"></div>
+                        <div class="team-content">
+                            <h4>Sarah Ahmed</h4>
+                            <div class="role">Creative Director</div>
+                            <p>With over 12 years in fashion design, Sarah leads our creative vision and ensures every collection reflects our commitment to luxury and innovation.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="team-card">
+                        <div class="team-image"></div>
+                        <div class="team-content">
+                            <h4>Ahmed Hassan</h4>
+                            <div class="role">Master Tailor</div>
+                            <p>Ahmed brings decades of traditional tailoring expertise to our team, ensuring every garment is crafted with precision and attention to detail.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="team-card">
+                        <div class="team-image"></div>
+                        <div class="team-content">
+                            <h4>Fatima Khan</h4>
+                            <div class="role">Quality Assurance Manager</div>
+                            <p>Fatima oversees our quality control processes, ensuring every piece meets our exacting standards before reaching our valued customers.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline Section -->
+    <section class="timeline-section">
+        <div class="container">
+            <h2 class="section-title text-center">Our Journey</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2008</div>
+                        <h4>The Beginning</h4>
+                        <p>Al Ameera Apparel was founded with a vision to create exceptional luxury clothing that combines traditional craftsmanship with modern design.</p>
+                    </div>
+                    <div class="timeline-marker"></div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2012</div>
+                        <h4>First Major Collection</h4>
+                        <p>Launched our signature luxury collection, establishing ourselves as a premium brand in the fashion industry with innovative designs.</p>
+                    </div>
+                    <div class="timeline-marker"></div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2016</div>
+                        <h4>Expansion & Growth</h4>
+                        <p>Expanded our operations to serve multiple cities and introduced our custom tailoring services, reaching thousands of satisfied customers.</p>
+                    </div>
+                    <div class="timeline-marker"></div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2020</div>
+                        <h4>Digital Transformation</h4>
+                        <p>Embraced digital innovation while maintaining our commitment to quality, making luxury fashion more accessible to our customers.</p>
+                    </div>
+                    <div class="timeline-marker"></div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2025</div>
+                        <h4>Present Day</h4>
+                        <p>Today, we continue to lead in luxury fashion, constantly innovating while staying true to our core values of quality, elegance, and customer satisfaction.</p>
+                    </div>
+                    <div class="timeline-marker"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action Section -->
+    <section class="section-padding cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Experience Al Ameera Excellence</h2>
+                <p>Join thousands of satisfied customers who trust Al Ameera Apparel for their luxury fashion needs. Discover our latest collections and experience the difference quality makes.</p>
+                <div class="cta-buttons">
+                    <a href="#products" class="btn-cta">
+                        <i class="bi bi-collection"></i>
+                        View Our Collections
+                    </a>
+                    <a href="#contact" class="btn-cta btn-cta-outline">
+                        <i class="bi bi-telephone"></i>
+                        Get In Touch
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <h5 class="heading-font">Al Ameera Apparel</h5>
+                    <p>Your premier destination for luxury fashion and premium clothing. We're committed to delivering
+                        excellence in every garment we create, combining traditional craftsmanship with contemporary
+                        design.</p>
+                    <div class="mt-4">
+                        <a href="#" class="social-link"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="social-link"><i class="bi bi-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="bi bi-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="bi bi-linkedin"></i></a>
+                        <a href="#" class="social-link"><i class="bi bi-youtube"></i></a>
+                    </div>
+                </div>
+
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#products">Our Products</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#contact">Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h5>Product Categories</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#">Men's Formal Wear</a></li>
+                        <li><a href="#">Women's Designer Collection</a></li>
+                        <li><a href="#">Casual & Lifestyle</a></li>
+                        <li><a href="#">Traditional Clothing</a></li>
+                        <li><a href="#">Children's Fashion</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h5>Customer Service</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#">Size Guide</a></li>
+                        <li><a href="#">Care Instructions</a></li>
+                        <li><a href="#">Shipping & Returns</a></li>
+                        <li><a href="#">Custom Orders</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <hr style="border-color: rgba(255, 255, 255, 0.2); margin: 3rem 0;">
+
+            <div class="row">
+                <div class="col-12 text-center">
+                    <p style="color: rgba(255, 255, 255, 0.6); margin: 0;">&copy; 2025 Al Ameera Apparel. All rights
+                        reserved. | Crafted with ❤️ for Fashion Excellence | Privacy Policy | Terms of Service</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        // Theme management
+        let currentTheme = 'light';
+
+        function toggleTheme() {
+            const body = document.body;
+            const themeToggle = document.querySelector('.theme-toggle');
+
+            if (currentTheme === 'light') {
+                body.setAttribute('data-theme', 'dark');
+                themeToggle.innerHTML = '<i class="bi bi-sun"></i> Light Mode';
+                currentTheme = 'dark';
+            } else {
+                body.setAttribute('data-theme', 'light');
+                themeToggle.innerHTML = '<i class="bi bi-moon"></i> Dark Mode';
+                currentTheme = 'light';
+            }
+        }
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const navbarHeight = document.querySelector('.navbar').offsetHeight;
+                    const targetPosition = target.offsetTop - navbarHeight;
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', function () {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 100) {
+                navbar.style.background = currentTheme === 'dark'
+                    ? 'rgba(26, 26, 26, 0.98)'
+                    : 'rgba(255, 255, 255, 0.98)';
+                navbar.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.1)';
+            } else {
+                navbar.style.background = currentTheme === 'dark'
+                    ? 'rgba(26, 26, 26, 0.95)'
+                    : 'rgba(255, 255, 255, 0.95)';
+                navbar.style.boxShadow = 'none';
+            }
+        });
+
+        // Animate stats on scroll
+        const observerOptions = {
+            threshold: 0.5,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver(function (entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const statNumbers = entry.target.querySelectorAll('.stat-number');
+                    statNumbers.forEach(stat => {
+                        const finalNumber = stat.textContent;
+                        const number = parseInt(finalNumber.replace(/[^0-9]/g, ''));
+                        animateNumber(stat, 0, number, finalNumber);
+                    });
+                }
+            });
+        }, observerOptions);
+
+        const statsSection = document.querySelector('.stats');
+        if (statsSection) {
+            observer.observe(statsSection);
+        }
+
+        function animateNumber(element, start, end, suffix) {
+            const duration = 2000;
+            const startTime = performance.now();
+
+            function updateNumber(currentTime) {
+                const elapsed = currentTime - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+                const current = Math.floor(start + (end - start) * progress);
+
+                element.textContent = current + suffix.replace(/[0-9]/g, '');
+
+                if (progress < 1) {
+                    requestAnimationFrame(updateNumber);
+                }
+            }
+
+            requestAnimationFrame(updateNumber);
+        }
+
+        // Intersection Observer for fade-in animations
+        const fadeObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        });
+
+        // Apply fade-in animation to various elements
+        document.addEventListener('DOMContentLoaded', function() {
+            const animatedElements = document.querySelectorAll('.value-card, .team-card, .timeline-item');
+            animatedElements.forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(30px)';
+                el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                fadeObserver.observe(el);
+            });
+        });
+
+        // Initialize tooltips (if you want to add them)
+        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+        var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+            return new bootstrap.Tooltip(tooltipTriggerEl);
+        });
+    </script>
+</body>
+
+</html>

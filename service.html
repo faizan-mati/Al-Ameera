@@ -1,0 +1,1136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Al Ameera Apparel - Services - Luxury Fashion & Premium Clothing</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css"
+        rel="stylesheet">
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        :root {
+            /* Light theme variables */
+            --primary-color: #2C3E50;
+            --secondary-color: #E74C3C;
+            --accent-color: #F39C12;
+            --bg-primary: #FFFFFF;
+            --bg-secondary: #F8F9FA;
+            --bg-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --text-primary: #2C3E50;
+            --text-secondary: #7F8C8D;
+            --text-light: #BDC3C7;
+            --border-color: #E8E9EA;
+            --shadow-light: 0 4px 6px rgba(0, 0, 0, 0.07);
+            --shadow-medium: 0 8px 25px rgba(0, 0, 0, 0.1);
+            --shadow-heavy: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        [data-theme="dark"] {
+            --primary-color: #3498DB;
+            --secondary-color: #E67E22;
+            --accent-color: #F1C40F;
+            --bg-primary: #1A1A1A;
+            --bg-secondary: #2C2C2C;
+            --bg-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --text-primary: #FFFFFF;
+            --text-secondary: #BDC3C7;
+            --text-light: #7F8C8D;
+            --border-color: #404040;
+            --shadow-light: 0 4px 6px rgba(0, 0, 0, 0.3);
+            --shadow-medium: 0 8px 25px rgba(0, 0, 0, 0.4);
+            --shadow-heavy: 0 20px 40px rgba(0, 0, 0, 0.6);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.7;
+            color: var(--text-primary);
+            background-color: var(--bg-primary);
+            transition: all 0.4s ease;
+            overflow-x: hidden;
+        }
+
+        .heading-font {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .section-padding {
+            padding: 6rem 0;
+        }
+
+        /* Enhanced Navbar */
+        .navbar {
+            background: rgba(255, 255, 255, 0.95) !important;
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+        }
+
+        [data-theme="dark"] .navbar {
+            background: rgba(26, 26, 26, 0.95) !important;
+        }
+
+        .navbar-brand {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--primary-color) !important;
+            position: relative;
+        }
+
+        .navbar-brand::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: var(--secondary-color);
+            transition: width 0.3s ease;
+        }
+
+        .navbar-brand:hover::after {
+            width: 100%;
+        }
+
+        .navbar-nav .nav-link {
+            color: var(--text-primary) !important;
+            font-weight: 500;
+            font-size: 1.05rem;
+            position: relative;
+            transition: all 0.3s ease;
+            margin: 0 0.5rem;
+        }
+
+        .navbar-nav .nav-link::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 2px;
+            background: var(--secondary-color);
+            transition: width 0.3s ease;
+        }
+
+        .navbar-nav .nav-link:hover::before {
+            width: 100%;
+        }
+
+        .theme-toggle {
+            background: var(--bg-gradient);
+            border: none;
+            color: white;
+            padding: 0.6rem 1.2rem;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-light);
+        }
+
+        .theme-toggle:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        /* Page Hero Section - Improved Responsiveness */
+        .page-hero {
+            background: var(--bg-gradient);
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            padding: 2rem 0;
+        }
+
+        .page-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse"><path d="M 50 0 L 0 0 0 50" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/></pattern></defs><rect width="100%" height="100%" fill="url(%23grid)"/></svg>') repeat;
+            animation: gridFloat 20s linear infinite;
+        }
+
+        @keyframes gridFloat {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
+        }
+
+        .page-hero .hero-content {
+            z-index: 2;
+            position: relative;
+            text-align: center;
+        }
+
+        .page-hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 700;
+            color: white;
+            margin-bottom: 1.5rem;
+            opacity: 0;
+            transform: translateY(50px);
+            animation: fadeInUp 1s ease 0.3s forwards;
+        }
+
+        .page-hero .subtitle {
+            font-size: clamp(1rem, 3vw, 1.3rem);
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 2rem;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease 0.6s forwards;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .breadcrumb-custom {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 1rem 1.5rem;
+            border-radius: 50px;
+            backdrop-filter: blur(10px);
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease 0.9s forwards;
+            display: inline-block;
+        }
+
+        .breadcrumb-custom a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .breadcrumb-custom a:hover {
+            color: white;
+        }
+
+        .breadcrumb-custom .active {
+            color: white;
+            font-weight: 600;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Services Grid */
+        .services-section {
+            background: var(--bg-primary);
+            position: relative;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-weight: 700;
+            color: var(--text-primary);
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: var(--secondary-color);
+            border-radius: 2px;
+        }
+
+        .service-card {
+            background: var(--bg-primary);
+            border-radius: 0;
+            padding: 3rem 2.5rem;
+            text-align: left;
+            box-shadow: none;
+            border: none;
+            border-left: 5px solid transparent;
+            transition: all 0.4s cubic-bezier(0.4, 0.0, 0.2, 1);
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(50px);
+            backdrop-filter: blur(10px);
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, 
+                rgba(102, 126, 234, 0.03) 0%, 
+                rgba(118, 75, 162, 0.03) 100%);
+            opacity: 0;
+            transition: all 0.4s ease;
+            z-index: 1;
+        }
+
+        .service-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 100%;
+            background: var(--bg-gradient);
+            transition: width 0.6s cubic-bezier(0.4, 0.0, 0.2, 1);
+            z-index: 1;
+            opacity: 0.08;
+        }
+
+        .service-card:hover::before {
+            opacity: 1;
+        }
+
+        .service-card:hover::after {
+            width: 100%;
+        }
+
+        .service-card:hover {
+            transform: translateX(20px);
+            border-left-color: var(--secondary-color);
+            box-shadow: -10px 20px 40px rgba(0, 0, 0, 0.1);
+            background: var(--bg-primary);
+        }
+
+        [data-theme="dark"] .service-card:hover {
+            box-shadow: -10px 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .service-card * {
+            position: relative;
+            z-index: 2;
+        }
+
+        .service-icon {
+            width: 70px;
+            height: 70px;
+            background: transparent;
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 0 2rem 0;
+            font-size: 1.8rem;
+            color: var(--text-secondary);
+            transition: all 0.4s cubic-bezier(0.4, 0.0, 0.2, 1);
+            position: relative;
+        }
+
+        .service-icon::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--bg-gradient);
+            border-radius: 10px;
+            opacity: 0;
+            transition: all 0.4s ease;
+        }
+
+        .service-card:hover .service-icon {
+            border-color: transparent;
+            color: white;
+            transform: translateY(-5px) rotate(5deg);
+        }
+
+        .service-card:hover .service-icon::before {
+            opacity: 1;
+        }
+
+        .service-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+        }
+
+        .service-description {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        .service-features {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 2rem;
+        }
+
+        .service-features li {
+            color: var(--text-secondary);
+            margin-bottom: 0.5rem;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .service-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--secondary-color);
+            font-weight: bold;
+        }
+
+        .service-btn {
+            background: var(--bg-gradient);
+            color: white;
+            border: none;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .service-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-medium);
+            color: white;
+        }
+
+        /* Process Section */
+        .process-section {
+            background: var(--bg-secondary);
+            position: relative;
+        }
+
+        .process-step {
+            text-align: center;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .process-number {
+            width: 80px;
+            height: 80px;
+            background: var(--bg-gradient);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: white;
+        }
+
+        .process-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+        }
+
+        .process-description {
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: var(--bg-gradient);
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="2" fill="rgba(255,255,255,0.1)"/></svg>') repeat;
+            animation: sparkle 3s linear infinite;
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .cta-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-section p {
+            font-size: clamp(1rem, 2vw, 1.3rem);
+            opacity: 0.9;
+            margin-bottom: 2.5rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-cta {
+            background: white;
+            color: var(--primary-color);
+            border: none;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-cta:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-heavy);
+            color: var(--primary-color);
+        }
+
+        .btn-cta-outline {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-cta-outline:hover {
+            background: white;
+            color: var(--primary-color);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--text-primary);
+            color: white;
+            padding: 5rem 0 2rem;
+        }
+
+        [data-theme="dark"] .footer {
+            background: #000000;
+        }
+
+        .footer h5 {
+            font-family: 'Playfair Display', serif;
+            color: var(--secondary-color);
+            margin-bottom: 1.5rem;
+        }
+
+        .footer p {
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.8;
+        }
+
+        .footer a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer a:hover {
+            color: var(--secondary-color);
+        }
+
+        .social-link {
+            width: 50px;
+            height: 50px;
+            background: var(--bg-gradient);
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: white !important;
+            text-decoration: none;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            margin-right: 1rem;
+        }
+
+        .social-link:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-medium);
+            color: white !important;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .section-padding {
+                padding: 4rem 0;
+            }
+            
+            .page-hero {
+                min-height: 50vh;
+                padding: 3rem 0;
+            }
+            
+            .service-card {
+                margin-bottom: 2rem;
+                padding: 2rem 1.5rem;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn-cta {
+                width: 100%;
+                max-width: 300px;
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .navbar-brand {
+                font-size: 1.8rem;
+            }
+            
+            .theme-toggle {
+                padding: 0.5rem 1rem;
+                font-size: 0.8rem;
+            }
+            
+            .service-card {
+                padding: 2rem 1rem;
+            }
+        }
+
+        /* Animation Classes */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease;
+        }
+
+        .animate-on-scroll.animated {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .stagger-animation {
+            transition-delay: calc(var(--index) * 0.1s);
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Bootstrap Navbar -->
+      <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="./index.html">Al Ameera Apparel</a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto me-3">
+                    <li class="nav-item">
+                        <a class="nav-link" href="./index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./product.html">Products</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./service.html">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./contact.html">Contact</a>
+                    </li>
+                </ul>
+                <button class="theme-toggle" onclick="toggleTheme()">
+                    <i class="bi bi-moon"></i> Dark Mode
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Hero Section -->
+    <section class="page-hero" id="services">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Our Premium Services</h1>
+                <p class="subtitle">Comprehensive fashion solutions tailored to your unique style and preferences. Experience luxury, quality, and personalized service at every step.</p>
+                <nav class="breadcrumb-custom">
+                    <a href="#home">Home</a> / <span class="active">Services</span>
+                </nav>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="section-padding services-section">
+        <div class="container">
+            <h2 class="section-title animate-on-scroll">Our Professional Services</h2>
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card animate-on-scroll stagger-animation" style="--index: 1;">
+                        <div class="service-icon">
+                            <i class="bi bi-scissors"></i>
+                        </div>
+                        <h3 class="service-title">Custom Tailoring</h3>
+                        <p class="service-description">Expert craftsmanship for perfect-fitting garments tailored to your exact measurements and style preferences.</p>
+                        <ul class="service-features">
+                            <li>Precision measurements</li>
+                            <li>Premium fabric selection</li>
+                            <li>Multiple fittings</li>
+                            <li>Style customization</li>
+                        </ul>
+                        <a href="#contact" class="service-btn">Learn More</a>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card animate-on-scroll stagger-animation" style="--index: 2;">
+                        <div class="service-icon">
+                            <i class="bi bi-palette"></i>
+                        </div>
+                        <h3 class="service-title">Style Consultation</h3>
+                        <p class="service-description">Personal styling services to help you discover and develop your unique fashion identity.</p>
+                        <ul class="service-features">
+                            <li>Personal style assessment</li>
+                            <li>Wardrobe planning</li>
+                            <li>Color analysis</li>
+                            <li>Styling tips & tricks</li>
+                        </ul>
+                        <a href="#contact" class="service-btn">Learn More</a>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card animate-on-scroll stagger-animation" style="--index: 3;">
+                        <div class="service-icon">
+                            <i class="bi bi-gem"></i>
+                        </div>
+                        <h3 class="service-title">Premium Alterations</h3>
+                        <p class="service-description">Professional alteration services to ensure your existing garments fit perfectly and look impeccable.</p>
+                        <ul class="service-features">
+                            <li>Expert fitting adjustments</li>
+                            <li>Garment restoration</li>
+                            <li>Hemming & resizing</li>
+                            <li>Quick turnaround</li>
+                        </ul>
+                        <a href="#contact" class="service-btn">Learn More</a>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card animate-on-scroll stagger-animation" style="--index: 4;">
+                        <div class="service-icon">
+                            <i class="bi bi-heart"></i>
+                        </div>
+                        <h3 class="service-title">Bridal & Special Events</h3>
+                        <p class="service-description">Specialized services for weddings and special occasions, creating unforgettable looks for your most important moments.</p>
+                        <ul class="service-features">
+                            <li>Bridal gown design</li>
+                            <li>Special occasion wear</li>
+                            <li>Coordinated accessories</li>
+                            <li>Event styling</li>
+                        </ul>
+                        <a href="#contact" class="service-btn">Learn More</a>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card animate-on-scroll stagger-animation" style="--index: 5;">
+                        <div class="service-icon">
+                            <i class="bi bi-briefcase"></i>
+                        </div>
+                        <h3 class="service-title">Corporate Wardrobe</h3>
+                        <p class="service-description">Professional wardrobe solutions for business executives and corporate professionals seeking sophisticated attire.</p>
+                        <ul class="service-features">
+                            <li>Business formal wear</li>
+                            <li>Corporate styling</li>
+                            <li>Bulk orders</li>
+                            <li>Professional consultation</li>
+                        </ul>
+                        <a href="#contact" class="service-btn">Learn More</a>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card animate-on-scroll stagger-animation" style="--index: 6;">
+                        <div class="service-icon">
+                            <i class="bi bi-truck"></i>
+                        </div>
+                        <h3 class="service-title">Home Delivery</h3>
+                        <p class="service-description">Convenient pickup and delivery services, bringing our premium fashion services directly to your doorstep.</p>
+                        <ul class="service-features">
+                            <li>Free home consultation</li>
+                            <li>Secure packaging</li>
+                            <li>Timely delivery</li>
+                            <li>Contactless service</li>
+                        </ul>
+                        <a href="#contact" class="service-btn">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="section-padding process-section">
+        <div class="container">
+            <h2 class="section-title animate-on-scroll">Our Process</h2>
+            <div class="row g-4">
+                <div class="col-lg-3 col-md-6">
+                    <div class="process-step animate-on-scroll stagger-animation" style="--index: 1;">
+                        <div class="process-number">1</div>
+                        <h3 class="process-title">Consultation</h3>
+                        <p class="process-description">Initial meeting to understand your needs, preferences, and style requirements.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="process-step animate-on-scroll stagger-animation" style="--index: 2;">
+                        <div class="process-number">2</div>
+                        <h3 class="process-title">Design & Planning</h3>
+                        <p class="process-description">Create detailed designs and select premium materials based on your vision.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="process-step animate-on-scroll stagger-animation" style="--index: 3;">
+                        <div class="process-number">3</div>
+                        <h3 class="process-title">Expert Crafting</h3>
+                        <p class="process-description">Skilled artisans bring your garments to life with precision and attention to detail.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="process-step animate-on-scroll stagger-animation" style="--index: 4;">
+                        <div class="process-number">4</div>
+                        <h3 class="process-title">Final Delivery</h3>
+                        <p class="process-description">Quality check and delivery of your perfectly crafted garments.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action Section -->
+    <section class="section-padding cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Transform Your Wardrobe?</h2>
+                <p>Experience the Al Ameera difference with our premium fashion services. Let us help you create the perfect wardrobe that reflects your unique style and personality.</p>
+                <div class="cta-buttons">
+                    <a href="#contact" class="btn-cta">
+                        <i class="bi bi-calendar-event"></i>
+                        Book Appointment
+                    </a>
+                    <a href="#contact" class="btn-cta btn-cta-outline">
+                        <i class="bi bi-telephone"></i>
+                        Call Us Now
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <h5 class="heading-font">Al Ameera Apparel</h5>
+                    <p>Your premier destination for luxury fashion and premium clothing. We're committed to delivering excellence in every garment we create, combining traditional craftsmanship with contemporary design.</p>
+                    <div class="mt-4">
+                        <a href="#" class="social-link"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="social-link"><i class="bi bi-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="bi bi-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="bi bi-linkedin"></i></a>
+                        <a href="#" class="social-link"><i class="bi bi-youtube"></i></a>
+                    </div>
+                </div>
+
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#products">Our Products</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#contact">Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h5>Product Categories</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#">Men's Formal Wear</a></li>
+                        <li><a href="#">Women's Designer Collection</a></li>
+                        <li><a href="#">Casual & Lifestyle</a></li>
+                        <li><a href="#">Traditional Clothing</a></li>
+                        <li><a href="#">Children's Fashion</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h5>Customer Service</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#">Size Guide</a></li>
+                        <li><a href="#">Care Instructions</a></li>
+                        <li><a href="#">Shipping & Returns</a></li>
+                        <li><a href="#">Custom Orders</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <hr style="border-color: rgba(255, 255, 255, 0.2); margin: 3rem 0;">
+
+            <div class="row">
+                <div class="col-12 text-center">
+                    <p style="color: rgba(255, 255, 255, 0.6); margin: 0;">&copy; 2025 Al Ameera Apparel. All rights reserved. | Crafted with ❤️ for Fashion Excellence | Privacy Policy | Terms of Service</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        // Theme management
+        let currentTheme = 'light';
+
+        function toggleTheme() {
+            const body = document.body;
+            const themeToggle = document.querySelector('.theme-toggle');
+
+            if (currentTheme === 'light') {
+                body.setAttribute('data-theme', 'dark');
+                themeToggle.innerHTML = '<i class="bi bi-sun"></i> Light Mode';
+                currentTheme = 'dark';
+            } else {
+                body.setAttribute('data-theme', 'light');
+                themeToggle.innerHTML = '<i class="bi bi-moon"></i> Dark Mode';
+                currentTheme = 'light';
+            }
+        }
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const navbarHeight = document.querySelector('.navbar').offsetHeight;
+                    const targetPosition = target.offsetTop - navbarHeight;
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', function () {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 100) {
+                navbar.style.background = currentTheme === 'dark'
+                    ? 'rgba(26, 26, 26, 0.98)'
+                    : 'rgba(255, 255, 255, 0.98)';
+                navbar.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.1)';
+            } else {
+                navbar.style.background = currentTheme === 'dark'
+                    ? 'rgba(26, 26, 26, 0.95)'
+                    : 'rgba(255, 255, 255, 0.95)';
+                navbar.style.boxShadow = 'none';
+            }
+        });
+
+        // Animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function (entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animated');
+                    
+                    // Animate stats numbers
+                    if (entry.target.classList.contains('stats-section')) {
+                        animateStats();
+                    }
+                }
+            });
+        }, observerOptions);
+
+        // Observe all animate-on-scroll elements
+        document.querySelectorAll('.animate-on-scroll').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Observe stats section
+        const statsSection = document.querySelector('.stats-section');
+        if (statsSection) {
+            observer.observe(statsSection);
+        }
+
+        // Animate service cards with stagger effect
+        function animateServiceCards() {
+            const serviceCards = document.querySelectorAll('.service-card');
+            serviceCards.forEach((card, index) => {
+                setTimeout(() => {
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, index * 200);
+            });
+        }
+
+        // Animate process steps
+        function animateProcessSteps() {
+            const processSteps = document.querySelectorAll('.process-step');
+            processSteps.forEach((step, index) => {
+                setTimeout(() => {
+                    step.style.opacity = '1';
+                    step.style.transform = 'translateY(0)';
+                }, index * 150);
+            });
+        }
+
+        // Animate stats numbers
+        function animateStats() {
+            const statNumbers = document.querySelectorAll('.stat-number');
+            statNumbers.forEach(stat => {
+                const target = parseInt(stat.getAttribute('data-target'));
+                const increment = target / 100;
+                let current = 0;
+                
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        current = target;
+                        clearInterval(timer);
+                    }
+                    stat.textContent = Math.floor(current);
+                }, 20);
+            });
+        }
+
+        // Service card hover effects
+        document.querySelectorAll('.service-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-15px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // Initialize animations when page loads
+        window.addEventListener('load', function() {
+            setTimeout(() => {
+                const servicesSection = document.querySelector('.services-section');
+                const processSection = document.querySelector('.process-section');
+                
+                // Check if sections are in view and animate accordingly
+                const rect1 = servicesSection.getBoundingClientRect();
+                const rect2 = processSection.getBoundingClientRect();
+                
+                if (rect1.top < window.innerHeight && rect1.bottom > 0) {
+                    animateServiceCards();
+                }
+                
+                if (rect2.top < window.innerHeight && rect2.bottom > 0) {
+                    animateProcessSteps();
+                }
+            }, 500);
+        });
+
+        // Add scroll-triggered animations for better performance
+        let ticking = false;
+        
+        function updateAnimations() {
+            const servicesSection = document.querySelector('.services-section');
+            const processSection = document.querySelector('.process-section');
+            
+            if (servicesSection) {
+                const rect = servicesSection.getBoundingClientRect();
+                if (rect.top < window.innerHeight * 0.8 && rect.bottom > 0) {
+                    animateServiceCards();
+                }
+            }
+            
+            if (processSection) {
+                const rect = processSection.getBoundingClientRect();
+                if (rect.top < window.innerHeight * 0.8 && rect.bottom > 0) {
+                    animateProcessSteps();
+                }
+            }
+            
+            ticking = false;
+        }
+
+        window.addEventListener('scroll', function() {
+            if (!ticking) {
+                requestAnimationFrame(updateAnimations);
+                ticking = true;
+            }
+        });
+
+        // Initialize tooltips (if you want to add them)
+        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+        var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+            return new bootstrap.Tooltip(tooltipTriggerEl);
+        });
+
+        // Preload animations
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add a slight delay to ensure all elements are rendered
+            setTimeout(() => {
+                document.body.style.visibility = 'visible';
+            }, 100);
+        });
+    </script>
+</body>
+
+</html>

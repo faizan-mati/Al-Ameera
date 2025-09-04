@@ -1,0 +1,1366 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Al Ameera Apparel - Luxury Fashion & Premium Clothing</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            /* Light theme variables */
+            --primary-color: #2C3E50;
+            --secondary-color: #E74C3C;
+            --accent-color: #F39C12;
+            --bg-primary: #FFFFFF;
+            --bg-secondary: #F8F9FA;
+            --bg-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --text-primary: #2C3E50;
+            --text-secondary: #7F8C8D;
+            --text-light: #BDC3C7;
+            --border-color: #E8E9EA;
+            --shadow-light: 0 4px 6px rgba(0, 0, 0, 0.07);
+            --shadow-medium: 0 8px 25px rgba(0, 0, 0, 0.1);
+            --shadow-heavy: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        [data-theme="dark"] {
+            --primary-color: #3498DB;
+            --secondary-color: #E67E22;
+            --accent-color: #F1C40F;
+            --bg-primary: #1A1A1A;
+            --bg-secondary: #2C2C2C;
+            --bg-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --text-primary: #FFFFFF;
+            --text-secondary: #BDC3C7;
+            --text-light: #7F8C8D;
+            --border-color: #404040;
+            --shadow-light: 0 4px 6px rgba(0, 0, 0, 0.3);
+            --shadow-medium: 0 8px 25px rgba(0, 0, 0, 0.4);
+            --shadow-heavy: 0 20px 40px rgba(0, 0, 0, 0.6);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.7;
+            color: var(--text-primary);
+            background-color: var(--bg-primary);
+            transition: all 0.4s ease;
+            overflow-x: hidden;
+        }
+
+        .heading-font {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .section-padding {
+            padding: 6rem 0;
+        }
+
+        /* Enhanced Navbar */
+        .navbar {
+            background: rgba(255, 255, 255, 0.95) !important;
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        [data-theme="dark"] .navbar {
+            background: rgba(26, 26, 26, 0.95) !important;
+        }
+
+        .navbar-brand {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--primary-color) !important;
+            position: relative;
+        }
+
+        .navbar-brand::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: var(--secondary-color);
+            transition: width 0.3s ease;
+        }
+
+        .navbar-brand:hover::after {
+            width: 100%;
+        }
+
+        .navbar-nav .nav-link {
+            color: var(--text-primary) !important;
+            font-weight: 500;
+            font-size: 1.05rem;
+            position: relative;
+            transition: all 0.3s ease;
+            margin: 0 0.5rem;
+        }
+
+        .navbar-nav .nav-link::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 2px;
+            background: var(--secondary-color);
+            transition: width 0.3s ease;
+        }
+
+        .navbar-nav .nav-link:hover::before {
+            width: 100%;
+        }
+
+        .theme-toggle {
+            background: var(--bg-gradient);
+            border: none;
+            color: white;
+            padding: 0.6rem 1.2rem;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-light);
+        }
+
+        .theme-toggle:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        /* Page Hero Section */
+        .page-hero {
+            background: var(--bg-gradient);
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            padding: 2rem 0;
+        }
+
+        .page-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse"><path d="M 50 0 L 0 0 0 50" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/></pattern></defs><rect width="100%" height="100%" fill="url(%23grid)"/></svg>') repeat;
+            animation: gridFloat 20s linear infinite;
+        }
+
+        @keyframes gridFloat {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
+        }
+
+        .page-hero .hero-content {
+            z-index: 2;
+            position: relative;
+            text-align: center;
+        }
+
+        .page-hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 700;
+            color: white;
+            margin-bottom: 1.5rem;
+            opacity: 0;
+            transform: translateY(50px);
+            animation: fadeInUp 1s ease 0.3s forwards;
+        }
+
+        .page-hero .subtitle {
+            font-size: clamp(1rem, 3vw, 1.3rem);
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 2rem;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease 0.6s forwards;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .breadcrumb-custom {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 1rem 1.5rem;
+            border-radius: 50px;
+            backdrop-filter: blur(10px);
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease 0.9s forwards;
+            display: inline-block;
+        }
+
+        .breadcrumb-custom a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .breadcrumb-custom a:hover {
+            color: white;
+        }
+
+        .breadcrumb-custom .active {
+            color: white;
+            font-weight: 600;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Section Headers */
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-title {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            color: var(--text-primary);
+            margin-bottom: 1.5rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--secondary-color);
+            border-radius: 2px;
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        /* Filter Buttons */
+        .filter-container {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .filter-btn {
+            background: var(--bg-secondary);
+            border: 2px solid var(--border-color);
+            color: var(--text-primary);
+            padding: 0.75rem 1.5rem;
+            margin: 0.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .filter-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--bg-gradient);
+            transition: left 0.3s ease;
+            z-index: 0;
+        }
+
+        .filter-btn span {
+            position: relative;
+            z-index: 1;
+        }
+
+        .filter-btn:hover {
+            border-color: var(--secondary-color);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .filter-btn:hover::before {
+            left: 0;
+        }
+
+        .filter-btn:hover span {
+            color: white;
+        }
+
+        .filter-btn.active {
+            background: var(--bg-gradient);
+            color: white;
+            border-color: transparent;
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .filter-btn.active::before {
+            left: 0;
+        }
+
+        /* Product Cards */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .product-card {
+            background: var(--bg-secondary);
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: var(--shadow-light);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            height: 100%;
+            opacity: 0;
+            transform: translateY(30px) scale(0.95);
+            animation: cardFadeIn 0.6s ease forwards;
+        }
+
+        .product-card.hidden {
+            display: none;
+        }
+
+        .product-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: var(--shadow-heavy);
+        }
+
+        @keyframes cardFadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .product-image {
+            width: 100%;
+            height: 280px;
+            background: var(--bg-gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(255, 255, 255, 0.1) 0%, transparent 100%);
+        }
+
+        .product-image::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--bg-gradient);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .product-card:hover .product-image::after {
+            opacity: 0.1;
+        }
+
+        .product-info {
+            padding: 2rem;
+            height: calc(100% - 280px);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-category {
+            color: var(--secondary-color);
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+            letter-spacing: 0.5px;
+        }
+
+        .product-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+            font-family: 'Playfair Display', serif;
+            line-height: 1.3;
+        }
+
+        .product-description {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
+        .product-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-tag {
+            background: var(--primary-color);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .feature-tag:hover {
+            transform: scale(1.05);
+            box-shadow: var(--shadow-light);
+        }
+
+        .learn-more {
+            color: var(--secondary-color);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+            margin-top: auto;
+        }
+
+        .learn-more:hover {
+            gap: 1rem;
+            color: var(--secondary-color);
+            transform: translateX(5px);
+        }
+
+        .learn-more i {
+            transition: transform 0.3s ease;
+        }
+
+        .learn-more:hover i {
+            transform: translateX(5px);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: var(--bg-gradient);
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="2" fill="rgba(255,255,255,0.1)"/></svg>') repeat;
+            animation: sparkle 3s linear infinite;
+        }
+
+        @keyframes sparkle {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 1; }
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .cta-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-section p {
+            font-size: clamp(1rem, 2vw, 1.3rem);
+            opacity: 0.9;
+            margin-bottom: 2.5rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-cta {
+            background: white;
+            color: var(--primary-color);
+            border: none;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .btn-cta:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-heavy);
+            color: var(--primary-color);
+        }
+
+        .btn-cta-outline {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-cta-outline:hover {
+            background: white;
+            color: var(--primary-color);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--text-primary);
+            color: white;
+            padding: 5rem 0 2rem;
+        }
+
+        [data-theme="dark"] .footer {
+            background: #000000;
+        }
+
+        .footer h5 {
+            font-family: 'Playfair Display', serif;
+            color: var(--secondary-color);
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+        }
+
+        .footer p {
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.8;
+        }
+
+        .footer a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer a:hover {
+            color: var(--secondary-color);
+        }
+
+        .footer ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .social-link {
+            width: 50px;
+            height: 50px;
+            background: var(--bg-gradient);
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: white !important;
+            text-decoration: none;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            margin-right: 1rem;
+        }
+
+        .social-link:hover {
+            transform: translateY(-5px) rotate(5deg);
+            box-shadow: var(--shadow-medium);
+            color: white !important;
+        }
+
+        /* Loading Animation */
+        .loading {
+            text-align: center;
+            padding: 2rem;
+            color: var(--text-secondary);
+        }
+
+        .loading::after {
+            content: '';
+            width: 40px;
+            height: 40px;
+            margin: 0 auto;
+            border: 3px solid var(--border-color);
+            border-top: 3px solid var(--secondary-color);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            display: block;
+            margin-top: 1rem;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .products-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .filter-btn {
+                padding: 0.6rem 1.2rem;
+                font-size: 0.9rem;
+                margin: 0.3rem;
+            }
+
+            .section-padding {
+                padding: 4rem 0;
+            }
+
+            .page-hero {
+                min-height: 50vh;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .navbar-brand {
+                font-size: 1.8rem;
+            }
+
+            .theme-toggle {
+                padding: 0.5rem 1rem;
+                font-size: 0.8rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn-cta {
+                width: 100%;
+                max-width: 280px;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Bootstrap Navbar -->
+     <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="./index.html">Al Ameera Apparel</a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto me-3">
+                    <li class="nav-item">
+                        <a class="nav-link" href="./index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./product.html">Products</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./service.html">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./contact.html">Contact</a>
+                    </li>
+                </ul>
+                <button class="theme-toggle" onclick="toggleTheme()">
+                    <i class="bi bi-moon"></i> Dark Mode
+                </button>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Page Hero Section -->
+    <section class="page-hero" id="services">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Our Premium Collections</h1>
+                <p class="subtitle">Discover our exquisite range of fashion collections, each crafted with precision and designed to elevate your style. From formal elegance to casual comfort, find your perfect look.</p>
+                <nav class="breadcrumb-custom">
+                    <a href="#home">Home</a> / <span class="active">Collections</span>
+                </nav>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="section-padding">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title heading-font">Featured Collections</h2>
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <p class="section-subtitle">Explore our carefully curated collections that showcase the perfect blend of contemporary fashion and timeless elegance, designed for the modern lifestyle.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Filter Buttons -->
+            <div class="filter-container">
+                <button class="filter-btn active" data-category="all">
+                    <span>All Collections</span>
+                </button>
+                <button class="filter-btn" data-category="men">
+                    <span>Men's Wear</span>
+                </button>
+                <button class="filter-btn" data-category="women">
+                    <span>Women's Wear</span>
+                </button>
+                <button class="filter-btn" data-category="casual">
+                    <span>Casual</span>
+                </button>
+                <button class="filter-btn" data-category="seasonal">
+                    <span>Seasonal</span>
+                </button>
+                <button class="filter-btn" data-category="traditional">
+                    <span>Traditional</span>
+                </button>
+                <button class="filter-btn" data-category="kids">
+                    <span>Kids</span>
+                </button>
+            </div>
+            
+            <!-- Products Grid -->
+            <div class="products-grid" id="productsGrid">
+                <!-- Men's Collection -->
+                <div class="product-card" data-category="men">
+                    <div class="product-image">👔</div>
+                    <div class="product-info">
+                        <div class="product-category">Men's Collection</div>
+                        <h3 class="product-title heading-font">Executive Formal Wear</h3>
+                        <p class="product-description">Sophisticated formal shirts, suits, and accessories designed for the modern professional. Crafted with premium cotton and finest materials for ultimate comfort and style.</p>
+                        <div class="product-features">
+                            <span class="feature-tag">Premium Cotton</span>
+                            <span class="feature-tag">Custom Fit</span>
+                            <span class="feature-tag">Wrinkle Free</span>
+                        </div>
+                        <a href="#" class="learn-more">Learn More <i class="bi bi-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Women's Collection -->
+                <div class="product-card" data-category="women">
+                    <div class="product-image">👗</div>
+                    <div class="product-info">
+                        <div class="product-category">Women's Collection</div>
+                        <h3 class="product-title heading-font">Elegant Designer Wear</h3>
+                        <p class="product-description">Exquisite dresses, blouses, and formal wear that celebrate femininity and grace. Each piece is carefully designed to enhance your natural beauty and confidence.</p>
+                        <div class="product-features">
+                            <span class="feature-tag">Luxury Fabric</span>
+                            <span class="feature-tag">Designer Cut</span>
+                            <span class="feature-tag">Comfort Fit</span>
+                        </div>
+                        <a href="#" class="learn-more">Learn More <i class="bi bi-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Casual Collection -->
+                <div class="product-card" data-category="casual">
+                    <div class="product-image">👕</div>
+                    <div class="product-info">
+                        <div class="product-category">Casual Collection</div>
+                        <h3 class="product-title heading-font">Premium Casual Wear</h3>
+                        <p class="product-description">Relaxed yet refined casual clothing perfect for weekend outings and informal gatherings. Comfort meets style in our contemporary casual collection.</p>
+                        <div class="product-features">
+                            <span class="feature-tag">Soft Touch</span>
+                            <span class="feature-tag">Breathable</span>
+                            <span class="feature-tag">Easy Care</span>
+                        </div>
+                        <a href="#" class="learn-more">Learn More <i class="bi bi-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Seasonal Collection -->
+                <div class="product-card" data-category="seasonal">
+                    <div class="product-image">🧥</div>
+                    <div class="product-info">
+                        <div class="product-category">Seasonal Collection</div>
+                        <h3 class="product-title heading-font">Luxury Outerwear</h3>
+                        <p class="product-description">Premium jackets, coats, and seasonal wear designed to keep you stylish and comfortable throughout the year. Quality meets functionality.</p>
+                        <div class="product-features">
+                            <span class="feature-tag">Weather Resistant</span>
+                            <span class="feature-tag">Thermal</span>
+                            <span class="feature-tag">Stylish</span>
+                        </div>
+                        <a href="#" class="learn-more">Learn More <i class="bi bi-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Traditional Collection -->
+                <div class="product-card" data-category="traditional">
+                    <div class="product-image">👘</div>
+                    <div class="product-info">
+                        <div class="product-category">Traditional Collection</div>
+                        <h3 class="product-title heading-font">Cultural Heritage Wear</h3>
+                        <p class="product-description">Beautiful traditional clothing that honors cultural heritage while incorporating modern comfort and style. Perfect for special occasions and celebrations.</p>
+                        <div class="product-features">
+                            <span class="feature-tag">Handcrafted</span>
+                            <span class="feature-tag">Traditional</span>
+                            <span class="feature-tag">Premium</span>
+                        </div>
+                        <a href="#" class="learn-more">Learn More <i class="bi bi-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Kids Collection -->
+                <div class="product-card" data-category="kids">
+                    <div class="product-image">👶</div>
+                    <div class="product-info">
+                        <div class="product-category">Kids Collection</div>
+                        <h3 class="product-title heading-font">Children's Fashion</h3>
+                        <p class="product-description">Adorable and comfortable clothing for children, designed with safety and style in mind. Made from soft, hypoallergenic materials perfect for sensitive skin.</p>
+                        <div class="product-features">
+                            <span class="feature-tag">Safe Materials</span>
+                            <span class="feature-tag">Comfortable</span>
+                            <span class="feature-tag">Durable</span>
+                        </div>
+                        <a href="#" class="learn-more">Learn More <i class="bi bi-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- Additional Men's Collection -->
+                <div class="product-card" data-category="men">
+                    <div class="product-image">🤵</div>
+                    <div class="product-info">
+                        <div class="product-category">Men's Collection</div>
+                        <h3 class="product-title heading-font">Business Casual</h3>
+                        <p class="product-description">Perfect blend of professional and relaxed styling. Ideal for modern workplaces that embrace smart casual dress codes while maintaining sophistication.</p>
+                        <div class="product-features">
+                            <span class="feature-tag">Smart Casual</span>
+                            <span class="feature-tag">Versatile</span>
+                            <span class="feature-tag">Modern Fit</span>
+                        </div>
+                        <a href="#" class="learn-more">Learn More <i class="bi bi-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- Additional Women's Collection -->
+                <div class="product-card" data-category="women">
+                    <div class="product-image">👠</div>
+                    <div class="product-info">
+                        <div class="product-category">Women's Collection</div>
+                        <h3 class="product-title heading-font">Professional Attire</h3>
+                        <p class="product-description">Empowering professional wear designed for the modern woman. Combines elegance with functionality for confidence in every business setting.</p>
+                        <div class="product-features">
+                            <span class="feature-tag">Power Dressing</span>
+                            <span class="feature-tag">Elegant</span>
+                            <span class="feature-tag">Professional</span>
+                        </div>
+                        <a href="#" class="learn-more">Learn More <i class="bi bi-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- Additional Casual Collection -->
+                <div class="product-card" data-category="casual">
+                    <div class="product-image">👟</div>
+                    <div class="product-info">
+                        <div class="product-category">Casual Collection</div>
+                        <h3 class="product-title heading-font">Weekend Essentials</h3>
+                        <p class="product-description">Comfortable and stylish casual wear perfect for leisure activities, travel, and weekend adventures. Designed for active lifestyles without compromising on style.</p>
+                        <div class="product-features">
+                            <span class="feature-tag">Active Wear</span>
+                            <span class="feature-tag">Flexible</span>
+                            <span class="feature-tag">Trendy</span>
+                        </div>
+                        <a href="#" class="learn-more">Learn More <i class="bi bi-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Call to Action Section -->
+    <section class="section-padding cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Transform Your Wardrobe?</h2>
+                <p>Experience the Al Ameera difference with our premium fashion services. Let us help you create the perfect wardrobe that reflects your unique style and personality.</p>
+                <div class="cta-buttons">
+                    <a href="#contact" class="btn-cta">
+                        <i class="bi bi-calendar-event"></i>
+                        Book Appointment
+                    </a>
+                    <a href="#contact" class="btn-cta btn-cta-outline">
+                        <i class="bi bi-telephone"></i>
+                        Call Us Now
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <h5 class="heading-font">Al Ameera Apparel</h5>
+                    <p>Your premier destination for luxury fashion and premium clothing. We're committed to delivering excellence in every garment we create, combining traditional craftsmanship with contemporary design.</p>
+                    <div class="mt-4">
+                        <a href="#" class="social-link"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="social-link"><i class="bi bi-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="bi bi-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="bi bi-linkedin"></i></a>
+                        <a href="#" class="social-link"><i class="bi bi-youtube"></i></a>
+                    </div>
+                </div>
+
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#products">Our Products</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#contact">Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h5>Product Categories</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#">Men's Formal Wear</a></li>
+                        <li><a href="#">Women's Designer Collection</a></li>
+                        <li><a href="#">Casual & Lifestyle</a></li>
+                        <li><a href="#">Traditional Clothing</a></li>
+                        <li><a href="#">Children's Fashion</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h5>Customer Service</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#">Size Guide</a></li>
+                        <li><a href="#">Care Instructions</a></li>
+                        <li><a href="#">Shipping & Returns</a></li>
+                        <li><a href="#">Custom Orders</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <hr style="border-color: rgba(255, 255, 255, 0.2); margin: 3rem 0;">
+
+            <div class="row">
+                <div class="col-12 text-center">
+                    <p style="color: rgba(255, 255, 255, 0.6); margin: 0;">&copy; 2025 Al Ameera Apparel. All rights reserved. | Crafted with ❤️ for Fashion Excellence | Privacy Policy | Terms of Service</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        // Application State
+        let currentTheme = 'light';
+        let currentFilter = 'all';
+        let isFiltering = false;
+
+        // Theme Management
+        function toggleTheme() {
+            const body = document.body;
+            const themeToggle = document.querySelector('.theme-toggle');
+
+            if (currentTheme === 'light') {
+                body.setAttribute('data-theme', 'dark');
+                themeToggle.innerHTML = '<i class="bi bi-sun"></i> Light Mode';
+                currentTheme = 'dark';
+            } else {
+                body.setAttribute('data-theme', 'light');
+                themeToggle.innerHTML = '<i class="bi bi-moon"></i> Dark Mode';
+                currentTheme = 'light';
+            }
+
+            // Save theme preference
+            localStorage.setItem('preferred-theme', currentTheme);
+        }
+
+        // Load saved theme preference
+        function loadThemePreference() {
+            const savedTheme = localStorage.getItem('preferred-theme');
+            if (savedTheme && savedTheme === 'dark') {
+                toggleTheme();
+            }
+        }
+
+        // Product Filtering System
+        function initializeFiltering() {
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const productCards = document.querySelectorAll('.product-card');
+
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    if (isFiltering) return; // Prevent multiple simultaneous filters
+
+                    const category = this.dataset.category;
+                    
+                    // Update active button
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Filter products
+                    filterProducts(category, productCards);
+                    currentFilter = category;
+                });
+            });
+        }
+
+        function filterProducts(category, productCards) {
+            isFiltering = true;
+            
+            // Add loading state
+            const grid = document.getElementById('productsGrid');
+            grid.style.opacity = '0.7';
+            
+            setTimeout(() => {
+                productCards.forEach((card, index) => {
+                    const cardCategory = card.dataset.category;
+                    const shouldShow = category === 'all' || cardCategory === category;
+                    
+                    if (shouldShow) {
+                        card.classList.remove('hidden');
+                        // Stagger the animation
+                        card.style.animationDelay = `${index * 0.1}s`;
+                        card.style.animation = 'none';
+                        card.offsetHeight; // Trigger reflow
+                        card.style.animation = 'cardFadeIn 0.6s ease forwards';
+                    } else {
+                        card.classList.add('hidden');
+                    }
+                });
+
+                // Remove loading state
+                setTimeout(() => {
+                    grid.style.opacity = '1';
+                    isFiltering = false;
+                }, 300);
+            }, 150);
+        }
+
+        // Enhanced Smooth Scrolling
+        function initializeSmoothScrolling() {
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        const navbarHeight = document.querySelector('.navbar').offsetHeight;
+                        const targetPosition = target.offsetTop - navbarHeight - 20;
+                        
+                        window.scrollTo({
+                            top: targetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        }
+
+        // Enhanced Navbar Scroll Effect
+        function initializeNavbarEffects() {
+            let lastScrollY = window.scrollY;
+            const navbar = document.querySelector('.navbar');
+            
+            window.addEventListener('scroll', function () {
+                const currentScrollY = window.scrollY;
+                
+                // Background and shadow effects
+                if (currentScrollY > 100) {
+                    navbar.style.background = currentTheme === 'dark'
+                        ? 'rgba(26, 26, 26, 0.98)'
+                        : 'rgba(255, 255, 255, 0.98)';
+                    navbar.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.1)';
+                } else {
+                    navbar.style.background = currentTheme === 'dark'
+                        ? 'rgba(26, 26, 26, 0.95)'
+                        : 'rgba(255, 255, 255, 0.95)';
+                    navbar.style.boxShadow = 'none';
+                }
+
+                // Hide/show navbar on scroll
+                if (currentScrollY > lastScrollY && currentScrollY > 100) {
+                    navbar.style.transform = 'translateY(-100%)';
+                } else {
+                    navbar.style.transform = 'translateY(0)';
+                }
+
+                lastScrollY = currentScrollY;
+            });
+        }
+
+        // Intersection Observer for Animations
+        function initializeAnimationObserver() {
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+
+            // Observe elements for animation
+            document.querySelectorAll('.product-card, .section-header, .cta-content').forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(30px)';
+                el.style.transition = 'all 0.6s ease';
+                observer.observe(el);
+            });
+        }
+
+        // Search Functionality (Optional Enhancement)
+        function initializeSearch() {
+            // This is a placeholder for search functionality
+            // You can implement a search box that filters products by title or description
+            const searchInput = document.querySelector('#searchInput');
+            if (searchInput) {
+                searchInput.addEventListener('input', function(e) {
+                    const searchTerm = e.target.value.toLowerCase();
+                    const productCards = document.querySelectorAll('.product-card');
+                    
+                    productCards.forEach(card => {
+                        const title = card.querySelector('.product-title').textContent.toLowerCase();
+                        const description = card.querySelector('.product-description').textContent.toLowerCase();
+                        const category = card.querySelector('.product-category').textContent.toLowerCase();
+                        
+                        const matches = title.includes(searchTerm) || 
+                                      description.includes(searchTerm) || 
+                                      category.includes(searchTerm);
+                        
+                        card.style.display = matches ? 'block' : 'none';
+                    });
+                });
+            }
+        }
+
+        // Performance Optimization
+        function initializePerformanceOptimizations() {
+            // Lazy loading for images (if you add real images later)
+            if ('IntersectionObserver' in window) {
+                const imageObserver = new IntersectionObserver((entries, observer) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            const img = entry.target;
+                            img.src = img.dataset.src;
+                            img.classList.remove('lazy');
+                            imageObserver.unobserve(img);
+                        }
+                    });
+                });
+
+                document.querySelectorAll('img[data-src]').forEach(img => {
+                    imageObserver.observe(img);
+                });
+            }
+
+            // Debounce scroll events
+            let scrollTimer = null;
+            window.addEventListener('scroll', function() {
+                if (scrollTimer !== null) {
+                    clearTimeout(scrollTimer);
+                }
+                scrollTimer = setTimeout(function() {
+                    // Scroll-dependent functions here
+                }, 150);
+            });
+        }
+
+        // Keyboard Navigation Support
+        function initializeKeyboardNavigation() {
+            document.addEventListener('keydown', function(e) {
+                // ESC key to clear filters
+                if (e.key === 'Escape' && currentFilter !== 'all') {
+                    const allButton = document.querySelector('.filter-btn[data-category="all"]');
+                    if (allButton) {
+                        allButton.click();
+                    }
+                }
+
+                // Number keys for quick filter access
+                const filterMapping = {
+                    '1': 'all',
+                    '2': 'men',
+                    '3': 'women',
+                    '4': 'casual',
+                    '5': 'seasonal',
+                    '6': 'traditional',
+                    '7': 'kids'
+                };
+
+                if (filterMapping[e.key]) {
+                    const button = document.querySelector(`.filter-btn[data-category="${filterMapping[e.key]}"]`);
+                    if (button && !isFiltering) {
+                        button.click();
+                    }
+                }
+            });
+        }
+
+        // Initialize tooltips for better UX
+        function initializeTooltips() {
+            // Add tooltips to filter buttons showing keyboard shortcuts
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const shortcuts = ['1', '2', '3', '4', '5', '6', '7'];
+            
+            filterButtons.forEach((button, index) => {
+                button.title = `Press ${shortcuts[index]} for quick access`;
+            });
+
+            // Initialize Bootstrap tooltips if available
+            if (typeof bootstrap !== 'undefined') {
+                var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+                var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+                    return new bootstrap.Tooltip(tooltipTriggerEl);
+                });
+            }
+        }
+
+        // Error Handling and Fallbacks
+        function initializeErrorHandling() {
+            window.addEventListener('error', function(e) {
+                console.warn('An error occurred:', e.error);
+                // You could show a user-friendly message here
+            });
+
+            // Check for JavaScript support
+            document.body.classList.add('js-enabled');
+        }
+
+        // Main Initialization Function
+        function initializeApp() {
+            try {
+                loadThemePreference();
+                initializeFiltering();
+                initializeSmoothScrolling();
+                initializeNavbarEffects();
+                initializeAnimationObserver();
+                initializeSearch();
+                initializePerformanceOptimizations();
+                initializeKeyboardNavigation();
+                initializeTooltips();
+                initializeErrorHandling();
+                
+                // Set initial animation delays
+                document.querySelectorAll('.product-card').forEach((card, index) => {
+                    card.style.animationDelay = `${index * 0.1}s`;
+                });
+
+                console.log('Al Ameera Apparel website initialized successfully!');
+            } catch (error) {
+                console.error('Error initializing application:', error);
+            }
+        }
+
+        // DOM Content Loaded Event
+        document.addEventListener('DOMContentLoaded', initializeApp);
+
+        // Window Load Event for final optimizations
+        window.addEventListener('load', function() {
+            // Remove any loading states
+            document.body.classList.add('loaded');
+            
+            // Preload critical resources
+            const criticalImages = ['hero-bg.jpg', 'pattern-bg.svg']; // Add your critical images
+            criticalImages.forEach(src => {
+                const img = new Image();
+                img.src = src;
+            });
+        });
+
+        // Service Worker Registration (for PWA support)
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function() {
+                navigator.serviceWorker.register('/sw.js')
+                    .then(function(registration) {
+                        console.log('ServiceWorker registered successfully');
+                    })
+                    .catch(function(error) {
+                        console.log('ServiceWorker registration failed');
+                    });
+            });
+        }
+    </script>
+</body>
+
+</html>
